@@ -146,9 +146,11 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   html {
     scroll-behavior: smooth;
   }
@@ -158,58 +160,72 @@
   .shadow-soft {
     box-shadow: var(--shadow-soft);
   }
+
   .shadow-medium {
     box-shadow: var(--shadow-medium);
   }
+
   .shadow-glow {
     box-shadow: 0 0 20px rgba(42, 123, 123, 0.3), 0 4px 24px -4px rgb(0 0 0 / 0.06);
   }
+
   .shadow-glow-lg {
     box-shadow: 0 0 40px rgba(42, 123, 123, 0.4), 0 8px 32px -4px rgb(0 0 0 / 0.1);
   }
+
   .shadow-glow-xl {
     box-shadow: 0 0 60px rgba(42, 123, 123, 0.5), 0 12px 48px -8px rgb(0 0 0 / 0.15);
   }
+
   .backdrop-blur-sm {
     backdrop-filter: blur(8px);
   }
+
   .backdrop-blur-md {
     backdrop-filter: blur(12px);
   }
+
   .backdrop-blur-xl {
     backdrop-filter: blur(24px);
   }
+
   .perspective-1000 {
     perspective: 1000px;
   }
 }
 
 @keyframes float {
+
   0%,
   100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-20px);
   }
 }
 
 @keyframes float-delayed {
+
   0%,
   100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-30px);
   }
 }
 
 @keyframes pulse-slow {
+
   0%,
   100% {
     opacity: 0.6;
     transform: scale(1);
   }
+
   50% {
     opacity: 1;
     transform: scale(1.05);
@@ -217,11 +233,13 @@
 }
 
 @keyframes pulse-slow-delayed {
+
   0%,
   100% {
     opacity: 0.5;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.9;
     transform: scale(1.08);
@@ -229,10 +247,12 @@
 }
 
 @keyframes gradient {
+
   0%,
   100% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
@@ -242,6 +262,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -252,6 +273,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -263,6 +285,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -273,16 +296,19 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
 @keyframes bounce-slow {
+
   0%,
   100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-10px);
   }
@@ -293,6 +319,7 @@
     transform: scale(1);
     opacity: 1;
   }
+
   75%,
   100% {
     transform: scale(2);
@@ -305,6 +332,7 @@
     transform: scale(1);
     opacity: 1;
   }
+
   75%,
   100% {
     transform: scale(2.5);
@@ -313,11 +341,13 @@
 }
 
 @keyframes star-twinkle {
+
   0%,
   100% {
     transform: scale(1);
     opacity: 1;
   }
+
   50% {
     transform: scale(1.2);
     opacity: 0.8;
@@ -329,15 +359,40 @@
     transform: translateY(0) translateX(0);
     opacity: 0;
   }
+
   10% {
     opacity: 1;
   }
+
   90% {
     opacity: 1;
   }
+
   100% {
     transform: translateY(-100vh) translateX(20px);
     opacity: 0;
+  }
+}
+
+@keyframes color-cycle {
+  0% {
+    color: var(--teal);
+  }
+
+  25% {
+    color: var(--coral);
+  }
+
+  50% {
+    color: var(--sage);
+  }
+
+  75% {
+    color: var(--orange);
+  }
+
+  100% {
+    color: var(--teal);
   }
 }
 
@@ -345,61 +400,81 @@
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
+
   .animate-float-delayed {
     animation: float-delayed 8s ease-in-out infinite;
     animation-delay: 1s;
   }
+
   .animate-pulse-slow {
     animation: pulse-slow 4s ease-in-out infinite;
   }
+
   .animate-pulse-slow-delayed {
     animation: pulse-slow-delayed 5s ease-in-out infinite;
     animation-delay: 2s;
   }
+
   .animate-gradient {
     background-size: 200% 200%;
     animation: gradient 3s ease infinite;
   }
+
   .animate-fade-in {
     animation: fade-in 1s ease-out forwards;
   }
+
   .animate-slide-up {
     animation: slide-up 0.8s ease-out forwards;
   }
+
   .animate-slide-up-delayed {
     animation: slide-up 0.8s ease-out 0.2s forwards;
     opacity: 0;
   }
+
   .animate-slide-up-delayed-2 {
     animation: slide-up 0.8s ease-out 0.4s forwards;
     opacity: 0;
   }
+
   .animate-fade-in-up {
     animation: fade-in-up 0.6s ease-out forwards;
     opacity: 0;
   }
+
   .animate-spin-slow {
     animation: spin-slow 20s linear infinite;
   }
+
   .animate-bounce-slow {
     animation: bounce-slow 3s ease-in-out infinite;
   }
+
   .animate-ping-slow {
     animation: ping-slow 3s cubic-bezier(0, 0, 0.2, 1) infinite;
   }
+
   .animate-ping-slow-delayed {
     animation: ping-slow-delayed 4s cubic-bezier(0, 0, 0.2, 1) infinite;
     animation-delay: 1.5s;
   }
+
   .animate-star-twinkle {
     animation: star-twinkle 2s ease-in-out infinite;
   }
+
   .animate-float-particle {
     animation: float-particle linear infinite;
   }
+
   .animate-on-scroll {
     opacity: 0;
     animation: fade-in-up 0.8s ease-out forwards;
     animation-play-state: running;
+  }
+
+  .animate-color-cycle {
+    animation: color-cycle 4s ease-in-out infinite;
   }
 }

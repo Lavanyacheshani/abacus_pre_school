@@ -63,9 +63,7 @@ export function TestimonialsSection() {
 
             <h2 className="mt-5 text-3xl md:text-5xl font-bold text-dark-teal tracking-tight">
               What Parents{" "}
-              <span className="bg-gradient-to-r from-teal via-sage to-coral bg-clip-text text-transparent animate-[testimonialsGradient_10s_linear_infinite]">
-                Say
-              </span>
+              <span className="text-teal">Say</span>
             </h2>
 
             <p className="mt-4 text-base md:text-lg text-sage max-w-2xl mx-auto leading-relaxed">

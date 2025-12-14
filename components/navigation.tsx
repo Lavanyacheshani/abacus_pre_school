@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { useEffect, useId, useMemo, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ChevronDown, Menu, X, CalendarDays } from "lucide-react"
@@ -34,9 +35,13 @@ export function Navigation() {
         ],
       },
       {
-        key: "news",
-        label: "News & Events",
-        items: [{ label: "Blogs", href: "/news" }],
+        key: "events",
+        label: "Events",
+        items: [
+          { label: "Event Calendar", href: "/events/calendar" },
+          { label: "Upcoming Events", href: "/events/upcoming" },
+          { label: "Past Events", href: "/events/past" },
+        ],
       },
       {
         key: "sessions",
@@ -134,20 +139,27 @@ export function Navigation() {
         <nav className="flex items-center justify-between" aria-label="Primary">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-10 rounded-full bg-gradient-to-br from-teal to-dark-teal flex items-center justify-center shadow-[0_12px_28px_rgba(0,0,0,0.12)]">
-              <span className="text-cream text-xl font-bold">A</span>
+            <div className="relative w-10 h-10 rounded-full overflow-hidden shadow-[0_12px_28px_rgba(0,0,0,0.12)]">
+              <Image
+                src="/4.jpg"
+                alt="Abacus Pre-school logo"
+                width={40}
+                height={40}
+                className="w-full h-full object-cover"
+              />
               {/* Soft glow */}
               <span className="pointer-events-none absolute -inset-3 rounded-full bg-gradient-to-br from-teal/25 to-coral/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
             <div className="leading-tight">
-              <h1 className="text-xl font-bold text-dark-teal tracking-tight">Abacus Pre-school</h1>
-              <p className="text-xs text-sage">New Malden</p>
+              <h1 className="text-xl font-bold text-dark-teal tracking-tight">ABACUS</h1>
+              <p className="text-xs text-sage">NEW MALDEN PRESCHOOL</p>
             </div>
           </Link>
 
           {/* Desktop */}
           <div className="hidden lg:flex items-center gap-7">
             <NavLink href="/">Home</NavLink>
+            <NavLink href="/news">Blogs</NavLink>
 
             {groups.map((g) => (
               <div

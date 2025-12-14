@@ -85,7 +85,7 @@ export function HighlightsSection() {
 
             <h2 className="mt-5 text-3xl md:text-5xl font-bold text-dark-teal tracking-tight">
               Why Choose{" "}
-              <span className="bg-gradient-to-r from-teal via-sage to-coral bg-clip-text text-transparent animate-[chooseGradient_10s_linear_infinite]">
+              <span className="text-teal font-bold">
                 Abacus
               </span>
               ?

@@ -70,16 +70,16 @@ export function Footer() {
               <h3 className="font-semibold text-cream mb-3">Who we are</h3>
               <ul className="space-y-2 text-sm text-cream/80">
                 <li>
-                  <FooterLink href="/who-we-are#our-staff">Our Staff</FooterLink>
+                  <FooterLink href="/who-we-are/our-staff">Our Staff</FooterLink>
                 </li>
                 <li>
-                  <FooterLink href="/who-we-are#mission-vision-values">Mission, Purpose, Vision & Values</FooterLink>
+                  <FooterLink href="/who-we-are/mission-vision-values">Mission, Purpose, Vision & Values</FooterLink>
                 </li>
                 <li>
-                  <FooterLink href="/who-we-are#learning-journeys">Learning Journeys</FooterLink>
+                  <FooterLink href="/who-we-are/learning-journeys">Learning Journeys</FooterLink>
                 </li>
                 <li>
-                  <FooterLink href="/who-we-are#policies">Policies & Procedures</FooterLink>
+                  <FooterLink href="/who-we-are/policies-procedures">Policies & Procedures</FooterLink>
                 </li>
               </ul>
             </motion.div>
@@ -100,20 +100,21 @@ export function Footer() {
             </motion.div>
 
             <motion.div variants={item}>
-              <h3 className="font-semibold text-cream mb-3">News & updates</h3>
+              <h3 className="font-semibold text-cream mb-3">Blogs & Events</h3>
               <ul className="space-y-2 text-sm text-cream/80">
                 <li>
-                  <FooterLink href="/news">News & Events</FooterLink>
+                  <FooterLink href="/news">Blogs</FooterLink>
                 </li>
                 <li>
-                  <FooterLink href="/news#blogs">Blogs</FooterLink>
+                  <FooterLink href="/events/calendar">Event Calendar</FooterLink>
                 </li>
                 <li>
-                  <FooterLink href="/contact">Contact Us</FooterLink>
+                  <FooterLink href="/events/upcoming">Upcoming Events</FooterLink>
+                </li>
+                <li>
+                  <FooterLink href="/events/past">Past Events</FooterLink>
                 </li>
               </ul>
-
-              
             </motion.div>
 
             <motion.div variants={item}>

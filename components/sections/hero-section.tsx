@@ -121,11 +121,13 @@ export function HeroSection() {
             variants={item}
             className="text-4xl md:text-6xl font-bold mb-6 leading-[1.08] tracking-tight text-white"
           >
-            Where learning begins with{" "}
+            Where learning begins with wonder{" "}
             <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-teal via-sage to-coral bg-clip-text text-transparent animate-[heroGradient_8s_linear_infinite]">
-                wonder
+              <span className="bg-gradient-to-r from-teal to-dark-teal bg-clip-text text-transparent">
+
               </span>
+
+
               {/* Underline glow */}
               <span className="pointer-events-none absolute -bottom-2 left-0 right-0 h-[10px] rounded-full bg-gradient-to-r from-teal/25 via-sage/25 to-coral/25 blur-md" />
             </span>
