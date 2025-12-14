@@ -1,7 +1,9 @@
+import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { CTASection } from "@/components/sections/cta-section"
 import { Footer } from "@/components/layout/footer"
 import { Calendar } from "lucide-react"
+import { blogPosts } from "@/lib/news"
 
 export const metadata = {
   title: "News & Events | Abacus Pre-school New Malden",
@@ -9,34 +11,8 @@ export const metadata = {
 }
 
 export default function NewsPage() {
-  const blogPosts = [
-    {
-      title: "Welcome to Our New School Year",
-      date: "September 15, 2024",
-      excerpt:
-        "We're excited to welcome all our new and returning families for another wonderful year of learning and growth...",
-      image: "/children-playing-preschool.jpg",
-      category: "Announcements",
-    },
-    {
-      title: "The Importance of Play-Based Learning",
-      date: "September 8, 2024",
-      excerpt: "Discover how play-based learning helps children develop essential skills for their future education...",
-      image: "/children-learning-through-play.jpg",
-      category: "Education",
-    },
-    {
-      title: "Our Autumn Festival Celebration",
-      date: "October 20, 2024",
-      excerpt:
-        "Join us for our annual Autumn Festival with fun activities, crafts, and seasonal treats for the whole family...",
-      image: "/autumn-festival-children.jpg",
-      category: "Events",
-    },
-  ]
-
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-cream">
       <Navigation />
 
       {/* Hero Banner */}
@@ -55,8 +31,8 @@ export default function NewsPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post, index) => (
               <article
-                key={index}
-                className="group bg-white rounded-3xl shadow-soft hover:shadow-glow transition-all duration-300 overflow-hidden"
+                key={post.slug}
+                className="group bg-white/85 backdrop-blur-md rounded-3xl shadow-soft hover:shadow-glow transition-all duration-300 overflow-hidden"
               >
                 <div className="relative h-56 overflow-hidden">
                   <img
@@ -70,6 +46,7 @@ export default function NewsPage() {
                     </span>
                   </div>
                 </div>
+
                 <div className="p-6">
                   <div className="flex items-center gap-4 text-sm text-sage mb-3">
                     <div className="flex items-center gap-1">
@@ -77,13 +54,19 @@ export default function NewsPage() {
                       <span>{post.date}</span>
                     </div>
                   </div>
+
                   <h3 className="text-xl font-bold text-dark-teal mb-3 group-hover:text-teal transition-colors">
                     {post.title}
                   </h3>
+
                   <p className="text-sage text-pretty leading-relaxed mb-4">{post.excerpt}</p>
-                  <button className="text-teal font-semibold hover:text-dark-teal transition-colors">
+
+                  <Link
+                    href={`/news/${post.slug}`}
+                    className="text-teal font-semibold hover:text-dark-teal transition-colors"
+                  >
                     Read More →
-                  </button>
+                  </Link>
                 </div>
               </article>
             ))}
