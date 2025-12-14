@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { motion, useReducedMotion, type Variants } from "framer-motion"
 import { HeartHandshake, Sparkles, ShieldCheck, GraduationCap } from "lucide-react"
@@ -24,13 +25,20 @@ export function WelcomeSection() {
 
   return (
     <section className="relative overflow-hidden py-16 md:py-24 bg-cream">
-      {/* Background accents (premium, subtle) */}
+      {/* Background accents (premium + playful) */}
       <div className="absolute inset-0">
         {/* soft dot field */}
         <div className="absolute inset-0 opacity-[0.06] [background-image:radial-gradient(rgba(42,123,123,0.9)_1px,transparent_1px)] [background-size:28px_28px]" />
         {/* glow blobs */}
         <div className="absolute -top-24 left-1/2 h-[360px] w-[560px] -translate-x-1/2 rounded-full bg-gradient-to-r from-teal/18 via-coral/12 to-sage/18 blur-3xl" />
         <div className="absolute -bottom-32 -left-24 h-[320px] w-[320px] rounded-full bg-gradient-to-br from-coral/16 to-teal/10 blur-3xl" />
+
+        {/* tiny playful “confetti” blobs */}
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute top-16 left-10 h-8 w-8 rounded-full bg-coral/12 blur-[0.2px]" />
+          <div className="absolute top-28 right-12 h-10 w-10 rounded-full bg-teal/10 blur-[0.2px]" />
+          <div className="absolute bottom-16 right-20 h-12 w-12 rounded-full bg-sage/12 blur-[0.2px]" />
+        </div>
       </div>
 
       <div className="container mx-auto px-4 relative">
@@ -68,8 +76,48 @@ export function WelcomeSection() {
             <div className="absolute -inset-[1px] rounded-[28px] bg-gradient-to-r from-teal/35 via-coral/30 to-sage/35 blur-[10px] opacity-70" />
             <div className="absolute -inset-[1px] rounded-[28px] bg-gradient-to-r from-teal/40 via-coral/35 to-sage/40 opacity-60" />
 
-            <Card className="relative bg-white/80 backdrop-blur-xl rounded-[28px] border border-white/60 shadow-[0_22px_70px_rgba(0,0,0,0.12)]">
+            <Card className="relative bg-white/80 backdrop-blur-xl rounded-[28px] border border-white/60 shadow-[0_22px_70px_rgba(0,0,0,0.12)] overflow-hidden">
               <CardContent className="p-7 md:p-12">
+                {/* Added: photo + illustration row */}
+                <div className="grid gap-6 lg:grid-cols-12 items-center mb-8 md:mb-10">
+                  {/* Photo */}
+                  <div className="lg:col-span-7">
+                    <div className="relative overflow-hidden rounded-[22px] border border-white/70 bg-white/60 shadow-sm">
+                      <Image
+                        src="/images/home/welcome-hero.jpg"
+                        alt="Children enjoying learning through play"
+                        width={1400}
+                        height={900}
+                        className="h-[220px] w-full object-cover md:h-[280px]"
+                        priority
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-dark-teal/15 via-transparent to-transparent" />
+                      <div className="absolute bottom-3 left-3 rounded-full bg-white/75 backdrop-blur-md border border-white/70 px-3 py-1 text-xs font-medium text-dark-teal">
+                        Learning through play, every day
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Illustration */}
+                  <div className="lg:col-span-5">
+                    <div className="relative rounded-[22px] border border-white/70 bg-white/65 backdrop-blur-md p-6 shadow-sm">
+                      <div className="text-sm font-semibold text-dark-teal">A place to belong</div>
+                      <p className="mt-2 text-sm text-sage leading-relaxed">
+                        A friendly start for children to explore, make friends, and grow in confidence.
+                      </p>
+
+                      <div className="mt-4 relative h-[150px] w-full">
+                        <Image
+                          src="/images/home/welcome-illustration.png"
+                          alt="Playful preschool illustration"
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 <div className="grid gap-7 md:gap-10 md:grid-cols-12">
                   {/* Copy */}
                   <div className="md:col-span-7">
@@ -96,14 +144,24 @@ export function WelcomeSection() {
                   {/* Highlights */}
                   <div className="md:col-span-5">
                     <div className="rounded-2xl border border-white/60 bg-white/55 backdrop-blur-md p-6 shadow-sm">
-                      <h3 className="text-base font-bold text-dark-teal tracking-tight">
-                        What parents value most
-                      </h3>
+                      <h3 className="text-base font-bold text-dark-teal tracking-tight">What parents value most</h3>
 
                       <div className="mt-5 space-y-4">
-                        <Highlight icon={ShieldCheck} title="Safe and supportive" text="A safeguarding-first culture with caring routines." />
-                        <Highlight icon={HeartHandshake} title="Inclusive community" text="Every child is welcomed and encouraged to belong." />
-                        <Highlight icon={GraduationCap} title="Learning through play" text="EYFS-aligned activities that build confidence." />
+                        <Highlight
+                          icon={ShieldCheck}
+                          title="Safe and supportive"
+                          text="A safeguarding-first culture with caring routines."
+                        />
+                        <Highlight
+                          icon={HeartHandshake}
+                          title="Inclusive community"
+                          text="Every child is welcomed and encouraged to belong."
+                        />
+                        <Highlight
+                          icon={GraduationCap}
+                          title="Learning through play"
+                          text="EYFS-aligned activities that build confidence."
+                        />
                       </div>
                     </div>
 
@@ -126,8 +184,12 @@ export function WelcomeSection() {
 
       <style jsx global>{`
         @keyframes welcomeGradient {
-          0% { filter: hue-rotate(0deg); }
-          100% { filter: hue-rotate(360deg); }
+          0% {
+            filter: hue-rotate(0deg);
+          }
+          100% {
+            filter: hue-rotate(360deg);
+          }
         }
       `}</style>
     </section>
