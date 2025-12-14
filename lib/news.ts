@@ -1,5 +1,3 @@
-// lib/news.ts
-
 export type BlogPost = {
     slug: string
     title: string
@@ -61,8 +59,7 @@ export const blogPosts: BlogPost[] = [
         date: "September 8, 2024",
         category: "Education",
         image: "/children-learning-through-play.jpg",
-        excerpt:
-            "Discover how play-based learning helps children develop essential skills for their future education.",
+        excerpt: "Discover how play-based learning helps children develop essential skills for their future education.",
         content: {
             intro:
                 "Play is how young children explore, experiment and make sense of the world. Through purposeful play experiences, children build language, confidence, problem-solving and relationships in ways that feel natural and enjoyable.",
@@ -102,8 +99,7 @@ export const blogPosts: BlogPost[] = [
         date: "October 20, 2024",
         category: "Events",
         image: "/autumn-festival-children.jpg",
-        excerpt:
-            "Join us for our annual Autumn Festival with fun activities, crafts, and seasonal treats for the whole family.",
+        excerpt: "Join us for our annual Autumn Festival with fun activities, crafts, and seasonal treats for the whole family.",
         content: {
             intro:
                 "Our Autumn Festival is a lovely opportunity for children and families to enjoy seasonal activities together. We focus on creativity, community and celebrating the changing season in a child-friendly way.",
@@ -129,11 +125,7 @@ export const blogPosts: BlogPost[] = [
                     ],
                 },
             ],
-            bullets: [
-                "Dress for the weather",
-                "Let staff know about allergies",
-                "Bring your autumn smiles and curiosity",
-            ],
+            bullets: ["Dress for the weather", "Let staff know about allergies", "Bring your autumn smiles and curiosity"],
         },
     },
 ]
