@@ -187,10 +187,7 @@ export function AdmissionsSection() {
                       </Button>
                     </div>
 
-                    <div className="mt-3 rounded-2xl border border-sage/20 bg-sage/10 p-4 text-xs text-sage">
-                      For now, this form is UI-only. If you tell me how you want submissions handled (Formspree or Resend),
-                      I’ll connect it properly.
-                    </div>
+                    
                   </form>
                 </CardContent>
               </Card>
