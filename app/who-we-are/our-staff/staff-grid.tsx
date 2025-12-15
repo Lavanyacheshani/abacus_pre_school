@@ -23,8 +23,9 @@ export function StaffGrid({ staff }: { staff: StaffMember[] }) {
 
     const easeOut: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
+    // IMPORTANT: hidden state must match SSR to avoid hydration warnings
     const container: Variants = {
-        hidden: { opacity: 1, y: 0 }, // important: match SSR
+        hidden: { opacity: 1, y: 0 },
         show: {
             opacity: 1,
             y: 0,
@@ -35,7 +36,7 @@ export function StaffGrid({ staff }: { staff: StaffMember[] }) {
     }
 
     const item: Variants = {
-        hidden: { opacity: 1, y: 0 }, // important: match SSR
+        hidden: { opacity: 1, y: 0 },
         show: {
             opacity: 1,
             y: 0,
@@ -43,7 +44,6 @@ export function StaffGrid({ staff }: { staff: StaffMember[] }) {
         },
     }
 
-    // We animate only after mount. Before mount, everything is plain static HTML.
     const shouldAnimate = mounted && !reduceMotion
 
     return (
@@ -56,7 +56,7 @@ export function StaffGrid({ staff }: { staff: StaffMember[] }) {
             <div className="container mx-auto px-4 relative">
                 <motion.div
                     variants={container}
-                    initial={false} // prevents SSR/client initial style mismatch
+                    initial={false}
                     animate={shouldAnimate ? "show" : undefined}
                     className="max-w-6xl mx-auto"
                 >
@@ -65,7 +65,7 @@ export function StaffGrid({ staff }: { staff: StaffMember[] }) {
                             <motion.article
                                 key={m.name}
                                 variants={item}
-                                initial={false} // same reason
+                                initial={false}
                                 animate={shouldAnimate ? "show" : undefined}
                                 className="group"
                             >
@@ -74,29 +74,31 @@ export function StaffGrid({ staff }: { staff: StaffMember[] }) {
                                     <div className="absolute -inset-[1px] rounded-[22px] bg-gradient-to-br from-teal/35 via-sage/20 to-coral/35 opacity-35" />
 
                                     <div className="relative rounded-[22px] bg-white/85 backdrop-blur-md border border-white/70 shadow-[0_16px_50px_rgba(0,0,0,0.12)] overflow-hidden flex flex-col">
-                                        {/* IMAGE AREA (compact + NO CROPPING) */}
-                                        <div className="relative h-[240px] md:h-[260px] lg:h-[280px] overflow-hidden bg-sage/10">
-                                            <Image
-                                                src={m.image}
-                                                alt={`${m.name} - ${m.role}`}
-                                                fill
-                                                className="object-contain transition-transform duration-700 group-hover:scale-[1.02]"
-                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                            />
+                                        {/* IMAGE AREA (fixed 128x171, centered, no cropping) */}
+                                        <div className="px-5 pt-5">
+                                            <div className="relative mx-auto h-[171px] w-[128px] overflow-hidden rounded-xl bg-sage/10">
+                                                <Image
+                                                    src={m.image}
+                                                    alt={`${m.name} - ${m.role}`}
+                                                    fill
+                                                    className="object-contain"
+                                                    sizes="128px"
+                                                />
+                                            </div>
 
-                                            {/* Name overlay */}
-                                            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent p-3">
-                                                <div className="text-cream text-base font-bold leading-tight drop-shadow">
+                                            {/* Name + Role (below image for better readability at small size) */}
+                                            <div className="mt-3 text-center">
+                                                <div className="text-sm font-semibold text-dark-teal leading-tight">
                                                     {m.name}
                                                 </div>
-                                                <div className="text-cream/90 text-xs drop-shadow line-clamp-2">
+                                                <div className="mt-1 text-xs text-sage leading-snug">
                                                     {m.role}
                                                 </div>
                                             </div>
                                         </div>
 
                                         {/* CONTENT */}
-                                        <div className="p-5 flex flex-col flex-1">
+                                        <div className="p-5 pt-4 flex flex-col flex-1">
                                             <p className="text-sm text-sage leading-relaxed line-clamp-3">
                                                 {m.bio}
                                             </p>
