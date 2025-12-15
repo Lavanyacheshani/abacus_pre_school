@@ -63,7 +63,7 @@ export function AdmissionsSection() {
 
                   <div className="mt-8 grid gap-3">
                     <a
-                      href="/admissions/parent-information-booklet.pdf"
+                      href="/admissions/1.docx"
                       className="inline-flex items-center justify-between rounded-2xl border border-sage/20 bg-sage/10 px-4 py-3 text-sm font-semibold text-dark-teal hover:bg-sage/15 transition-colors"
                       download
                     >
@@ -74,17 +74,7 @@ export function AdmissionsSection() {
                       <Download className="h-4 w-4" />
                     </a>
 
-                    <a
-                      href="/admissions/application-form.pdf"
-                      className="inline-flex items-center justify-between rounded-2xl border border-sage/20 bg-sage/10 px-4 py-3 text-sm font-semibold text-dark-teal hover:bg-sage/15 transition-colors"
-                      download
-                    >
-                      <span className="inline-flex items-center gap-2">
-                        <FileText className="h-4 w-4" />
-                        Application Form (PDF)
-                      </span>
-                      <Download className="h-4 w-4" />
-                    </a>
+
                   </div>
 
                   <div className="mt-6 rounded-2xl border border-sage/20 bg-white/70 p-5">
@@ -187,7 +177,7 @@ export function AdmissionsSection() {
                       </Button>
                     </div>
 
-                    
+
                   </form>
                 </CardContent>
               </Card>
