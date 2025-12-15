@@ -12,19 +12,21 @@ type Policy = {
 }
 
 const policies: Policy[] = [
-    { title: "Admissions", file: "/policies/admissions.pdf" },
-    { title: "Confidentiality", file: "/policies/confidentiality.pdf" },
-    { title: "Complaint", file: "/policies/complaint.pdf" },
-    { title: "SEND", file: "/policies/send.pdf" },
-    { title: "Safeguarding", file: "/policies/safeguarding.pdf" },
-    { title: "Settling in Procedure", file: "/policies/settling-in-procedure.pdf" },
-    { title: "Health, Safety & Welfare", file: "/policies/health-safety-welfare.pdf" },
-    { title: "Uncollected and Lost child", file: "/policies/uncollected-and-lost-child.pdf" },
-    { title: "Fire Evacuation", file: "/policies/fire-evacuation.pdf" },
-    { title: "Outings and Visits", file: "/policies/outings-and-visits.pdf" },
-    { title: "Student Placement", file: "/policies/student-placement.pdf" },
-    { title: "Whistleblowing", file: "/policies/whistleblowing.pdf" },
+    { title: "Induction Policy", file: "/policies/induction policy 2025.odt" },
+    { title: "Looked After Children Policy", file: "/policies/Looked After Children policy 2025.odt" },
+    { title: "Missing Child Policy", file: "/policies/MISSING CHILD POLICY 2025.odt" },
+    { title: "No Smoking Policy", file: "/policies/no smoking policy 2025.odt" },
+    { title: "Equal Opportunities Policy", file: "/policies/Equal opportunity policy 2025.odt" },
+    { title: "Maintaining Safety Policy", file: "/policies/Maintaining Children’s Safety and Security on Premises 2025 policy.odt" },
+    { title: "Nappy Changing Policy", file: "/policies/nappy changing policy 2025.odt" },
+    { title: "Parent Partnership Policy", file: "/policies/parent partnership policy 2025.odt" },
+    { title: "Fire Evacuation Policy", file: "/policies/Fire Evacuation 2022.docx" },
+    { title: "Outings and Visits Policy", file: "/policies/Outings and Visits reviewed and updated 2019.docx Letterhead.docx" },
+    { title: "Student Placement Policy", file: "/policies/student placement policy 2025.odt" },
+    { title: "Whistleblowing Policy", file: "/policies/whistle blowing policy 2021.docx" },
+    { title: "Record Keeping Policy", file: "/policies/Record Keeping Policy 2025.odt" },
 ]
+
 
 export function PoliciesContent() {
     const reduceMotion = useReducedMotion()
@@ -163,17 +165,7 @@ export function PoliciesContent() {
                                                     </span>
                                                 )}
 
-                                                {p.file ? (
-                                                    <a
-                                                        href={p.file}
-                                                        target="_blank"
-                                                        rel="noreferrer"
-                                                        className="inline-flex items-center justify-center rounded-full border border-sage/25 bg-white/70 px-4 py-2.5 text-sm font-semibold text-dark-teal hover:bg-white transition-colors"
-                                                        aria-label={`Open ${p.title} PDF in a new tab`}
-                                                    >
-                                                        View
-                                                    </a>
-                                                ) : null}
+
                                             </div>
 
                                             <div className="mt-5">
