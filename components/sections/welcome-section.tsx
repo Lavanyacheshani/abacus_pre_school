@@ -78,7 +78,7 @@ export function WelcomeSection() {
                   <div className="lg:col-span-7">
                     <div className="relative overflow-hidden rounded-[22px] border border-white/70 bg-white/60 shadow-sm">
                       <Image
-                        src="/images/home/welcome-hero.jpg"
+                        src="/13.jpg"
                         alt="Children enjoying learning through play"
                         width={1400}
                         height={900}
@@ -103,7 +103,7 @@ export function WelcomeSection() {
                       {/* Frame */}
                       <div className="mt-4 relative h-[150px] w-full overflow-hidden rounded-xl bg-white/35">
                         <Image
-                          src="/images/home/welcome-illustration.png"
+                          src="/18.jpg"
                           alt="Playful preschool illustration"
                           fill
                           className="object-cover"

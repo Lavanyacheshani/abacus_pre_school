@@ -96,7 +96,7 @@ export function LearningJourneysContent() {
                             <div className="lg:col-span-7">
                                 <div className="relative overflow-hidden rounded-[28px] border border-white/70 bg-white/60 shadow-[0_18px_60px_rgba(0,0,0,0.10)]">
                                     <Image
-                                        src="/images/learning-journeys/hero-kids-reading.jpg"
+                                        src="/22.jpg"
                                         alt="Children enjoying stories and learning activities"
                                         width={1400}
                                         height={800}
@@ -181,7 +181,7 @@ export function LearningJourneysContent() {
                                 <div className="mt-7">
                                     <div className="relative overflow-hidden rounded-[24px] border border-white/70 bg-white/70 shadow-sm">
                                         <Image
-                                            src="/images/learning-journeys/journey-scrapbook.jpg"
+                                            src="/23.jpg"
                                             alt="A Learning Journey book with drawings, photos and notes"
                                             width={1200}
                                             height={800}

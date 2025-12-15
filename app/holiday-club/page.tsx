@@ -93,7 +93,7 @@ export default function HolidayClubPage() {
                     <div className="relative overflow-hidden rounded-[22px] border border-white/70 bg-white/70 shadow-sm">
                       <div className="relative h-[210px] w-full">
                         <Image
-                          src="/holiday-club-outdoor-play.jpg"
+                          src="/12.jpg"
                           alt="Children enjoying outdoor play"
                           fill
                           priority
@@ -108,7 +108,7 @@ export default function HolidayClubPage() {
                     <div className="relative overflow-hidden rounded-[22px] border border-white/70 bg-white/70 shadow-sm">
                       <div className="relative h-[210px] w-full">
                         <Image
-                          src="/holiday-club-crafts.jpg"
+                          src="/13.jpg"
                           alt="Children doing crafts"
                           fill
                           quality={72}
@@ -122,7 +122,7 @@ export default function HolidayClubPage() {
                     <div className="relative overflow-hidden rounded-[22px] border border-white/70 bg-white/70 shadow-sm col-span-2">
                       <div className="relative h-[220px] md:h-[240px] w-full">
                         <Image
-                          src="/holiday-club-group-fun.jpg"
+                          src="/14.jpg"
                           alt="Holiday club group fun"
                           fill
                           quality={72}
@@ -165,7 +165,7 @@ export default function HolidayClubPage() {
                   <div className="relative overflow-hidden rounded-[22px] border border-white/70 bg-white/70 shadow-sm">
                     <div className="relative h-[180px] w-full">
                       <Image
-                        src="/holiday-club-sensory-play.jpg"
+                        src="/15.jpg"
                         alt="Sensory play activity"
                         fill
                         quality={70}
@@ -178,7 +178,7 @@ export default function HolidayClubPage() {
                   <div className="relative overflow-hidden rounded-[22px] border border-white/70 bg-white/70 shadow-sm">
                     <div className="relative h-[180px] w-full">
                       <Image
-                        src="/holiday-club-story-time.jpg"
+                        src="/16.jpg"
                         alt="Story time"
                         fill
                         quality={70}
@@ -191,7 +191,7 @@ export default function HolidayClubPage() {
                   <div className="relative overflow-hidden rounded-[22px] border border-white/70 bg-white/70 shadow-sm">
                     <div className="relative h-[180px] w-full">
                       <Image
-                        src="/holiday-club-building-blocks.jpg"
+                        src="/17.jpg"
                         alt="Building and construction play"
                         fill
                         quality={70}
