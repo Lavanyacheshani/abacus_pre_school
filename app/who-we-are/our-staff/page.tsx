@@ -96,7 +96,8 @@ export default function OurStaffPage() {
                         </h1>
 
                         <p className="mt-4 text-lg md:text-xl text-sage max-w-3xl leading-relaxed">
-                            Our dedicated team creates a calm, caring environment where children feel safe, supported, and excited to learn.
+                            Our dedicated team creates a calm, caring environment where children feel safe,
+                            supported, and excited to learn.
                         </p>
                     </div>
                 </div>
