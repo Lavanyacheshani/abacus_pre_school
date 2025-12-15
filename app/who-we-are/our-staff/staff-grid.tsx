@@ -17,7 +17,7 @@ export function StaffGrid({ staff }: { staff: StaffMember[] }) {
   const easeOut: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
   const container: Variants = {
-    hidden: reduceMotion ? { opacity: 1 } : { opacity: 0, y: 12 },
+    hidden: reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 },
     show: {
       opacity: 1,
       y: 0,
@@ -44,12 +44,11 @@ export function StaffGrid({ staff }: { staff: StaffMember[] }) {
       </div>
 
       <div className="container mx-auto px-4 relative">
+        {/* Key change: animate on mount (no whileInView / viewport) */}
         <motion.div
           variants={container}
           initial="hidden"
-          whileInView="show"
-          // Fix: mobile viewports often never satisfy amount: 0.25
-          viewport={{ once: true, amount: 0.1, margin: "-80px" }}
+          animate="show"
           className="max-w-6xl mx-auto"
         >
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -68,7 +67,6 @@ export function StaffGrid({ staff }: { staff: StaffMember[] }) {
                         fill
                         className="object-contain transition-transform duration-700 group-hover:scale-[1.02]"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        priority={false}
                       />
 
                       {/* Name overlay */}
