@@ -1,7 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import { MapPin, Phone, Mail, ArrowUpRight, Clock, ChevronUp } from "lucide-react"
+import Image from "next/image"
+import { MapPin, Phone, Mail, ArrowUpRight, ChevronUp } from "lucide-react"
 import { motion, useReducedMotion, type Variants } from "framer-motion"
 
 export function Footer() {
@@ -13,13 +14,19 @@ export function Footer() {
     show: {
       opacity: 1,
       y: 0,
-      transition: reduceMotion ? { duration: 0 } : { duration: 0.55, ease: easeOut, staggerChildren: 0.06 },
+      transition: reduceMotion
+        ? { duration: 0 }
+        : { duration: 0.55, ease: easeOut, staggerChildren: 0.06 },
     },
   }
 
   const item: Variants = {
     hidden: reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 },
-    show: { opacity: 1, y: 0, transition: reduceMotion ? { duration: 0 } : { duration: 0.45, ease: easeOut } },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: reduceMotion ? { duration: 0 } : { duration: 0.45, ease: easeOut },
+    },
   }
 
   return (
@@ -39,19 +46,27 @@ export function Footer() {
           viewport={{ once: true, amount: 0.25 }}
           className="max-w-6xl mx-auto py-14 md:py-16"
         >
-          {/* Top row: brand + back to top */}
-          <motion.div variants={item} className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-10">
-            <div>
-              <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-full bg-gradient-to-br from-teal to-sage flex items-center justify-center shadow-[0_16px_40px_rgba(0,0,0,0.22)]">
-                  <span className="text-cream font-bold text-lg">A</span>
-                </div>
-                <div className="leading-tight">
-                  <div className="text-lg font-bold tracking-tight">Abacus Pre-school</div>
-                  <div className="text-sm text-cream/75">New Malden</div>
-                </div>
+          {/* Top row */}
+          <motion.div
+            variants={item}
+            className="group flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-10"
+          >
+            <div className="flex items-center gap-4">
+              <div className="relative w-10 h-10 rounded-full overflow-hidden shadow-[0_12px_28px_rgba(0,0,0,0.12)]">
+                <Image
+                  src="/4.jpg"
+                  alt="Abacus Pre-school logo"
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-cover"
+                />
+                <span className="pointer-events-none absolute -inset-3 rounded-full bg-gradient-to-br from-teal/25 to-coral/20 blur-xl opacity-0 transition-opacity group-hover:opacity-100" />
               </div>
 
+              <div className="leading-tight">
+                <h1 className="text-xl font-bold text-cream tracking-tight">ABACUS</h1>
+                <p className="text-xs text-cream/80">NEW MALDEN PRESCHOOL</p>
+              </div>
             </div>
 
             <a
@@ -65,55 +80,37 @@ export function Footer() {
           </motion.div>
 
           {/* Link grid */}
-          <div className="grid gap-8 md:grid-cols-4">
+          <motion.div variants={container} className="grid gap-8 md:grid-cols-4">
             <motion.div variants={item}>
               <h3 className="font-semibold text-cream mb-3">Who we are</h3>
               <ul className="space-y-2 text-sm text-cream/80">
+                <li><FooterLink href="/who-we-are/our-staff">Our Staff</FooterLink></li>
                 <li>
-                  <FooterLink href="/who-we-are/our-staff">Our Staff</FooterLink>
+                  <FooterLink href="/who-we-are/mission-vision-values">
+                    Mission, Purpose, Vision &amp; Values
+                  </FooterLink>
                 </li>
-                <li>
-                  <FooterLink href="/who-we-are/mission-vision-values">Mission, Purpose, Vision & Values</FooterLink>
-                </li>
-                <li>
-                  <FooterLink href="/who-we-are/learning-journeys">Learning Journeys</FooterLink>
-                </li>
-                <li>
-                  <FooterLink href="/who-we-are/policies-procedures">Policies & Procedures</FooterLink>
-                </li>
+                <li><FooterLink href="/who-we-are/learning-journeys">Learning Journeys</FooterLink></li>
+                <li><FooterLink href="/who-we-are/policies-procedures">Policies &amp; Procedures</FooterLink></li>
               </ul>
             </motion.div>
 
             <motion.div variants={item}>
-              <h3 className="font-semibold text-cream mb-3">Sessions & fees</h3>
+              <h3 className="font-semibold text-cream mb-3">Sessions &amp; fees</h3>
               <ul className="space-y-2 text-sm text-cream/80">
-                <li>
-                  <FooterLink href="/sessions-and-fees">Sessions & Fees</FooterLink>
-                </li>
-                <li>
-                  <FooterLink href="/admissions">Admissions</FooterLink>
-                </li>
-                <li>
-                  <FooterLink href="/holiday-club">Holiday Club</FooterLink>
-                </li>
+                <li><FooterLink href="/sessions-and-fees">Sessions &amp; Fees</FooterLink></li>
+                <li><FooterLink href="/admissions">Admissions</FooterLink></li>
+                <li><FooterLink href="/holiday-club">Holiday Club</FooterLink></li>
               </ul>
             </motion.div>
 
             <motion.div variants={item}>
-              <h3 className="font-semibold text-cream mb-3">Blogs & Events</h3>
+              <h3 className="font-semibold text-cream mb-3">Blogs &amp; Events</h3>
               <ul className="space-y-2 text-sm text-cream/80">
-                <li>
-                  <FooterLink href="/news">Blogs</FooterLink>
-                </li>
-                <li>
-                  <FooterLink href="/events/calendar">Event Calendar</FooterLink>
-                </li>
-                <li>
-                  <FooterLink href="/events/upcoming">Upcoming Events</FooterLink>
-                </li>
-                <li>
-                  <FooterLink href="/events/past">Past Events</FooterLink>
-                </li>
+                <li><FooterLink href="/news">Blogs</FooterLink></li>
+                <li><FooterLink href="/events/calendar">Event Calendar</FooterLink></li>
+                <li><FooterLink href="/events/upcoming">Upcoming Events</FooterLink></li>
+                <li><FooterLink href="/events/past">Past Events</FooterLink></li>
               </ul>
             </motion.div>
 
@@ -130,15 +127,11 @@ export function Footer() {
                   </p>
                 </div>
 
-                <a
-                  href="tel:+447934133701"
-                  className="flex items-center gap-2 hover:text-cream transition-colors"
-                >
+                <a href="tel:+447934133701" className="flex items-center gap-2 hover:text-cream transition-colors">
                   <Phone className="h-4 w-4 text-cream/90" />
                   07934 133 701
                 </a>
 
-                {/* Optional: if you have an email, replace example below */}
                 <a
                   href="mailto:info@abacusnewmalden.co.uk"
                   className="flex items-center gap-2 hover:text-cream transition-colors"
@@ -157,7 +150,7 @@ export function Footer() {
                 </a>
               </div>
             </motion.div>
-          </div>
+          </motion.div>
 
           {/* Bottom bar */}
           <motion.div
@@ -165,11 +158,18 @@ export function Footer() {
             className="mt-10 pt-8 border-t border-white/20 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-cream/75"
           >
             <p>© {new Date().getFullYear()} Abacus Pre-school New Malden. All rights reserved.</p>
-            <div className="flex items-center gap-4">
-              <FooterLink href="/who-we-are#policies">Privacy & Policies</FooterLink>
-              <span className="opacity-40">•</span>
-              <FooterLink href="/contact">Contact</FooterLink>
-            </div>
+
+            <p className="text-xs text-cream/70">
+              Designed &amp; Developed by{" "}
+              <a
+                href="https://www.creotizant.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="font-semibold text-cream hover:text-coral transition-colors"
+              >
+                Creotizant
+              </a>
+            </p>
           </motion.div>
         </motion.div>
       </div>

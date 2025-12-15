@@ -2,7 +2,6 @@ import Image from "next/image"
 import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { HolidayClubSection } from "@/components/sections/holiday-club-section"
-import { CTASection } from "@/components/sections/cta-section"
 import { Footer } from "@/components/layout/footer"
 import { Sparkles, Sun, Paintbrush, Music, Leaf, PartyPopper, ArrowRight } from "lucide-react"
 
@@ -10,6 +9,10 @@ export const metadata = {
   title: "Holiday Club | Abacus Pre-school New Malden",
   description: "Join our exciting holiday club programs filled with fun activities and learning.",
 }
+
+const heroHalfSizes = "(max-width: 1024px) 100vw, 420px"
+const fullSizes = "(max-width: 1024px) 100vw, 900px"
+const stripSizes = "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
 
 export default function HolidayClubPage() {
   return (
@@ -38,6 +41,7 @@ export default function HolidayClubPage() {
                   <h1 className="mt-5 text-4xl md:text-5xl lg:text-6xl font-bold text-dark-teal tracking-tight text-balance">
                     Holiday Club
                   </h1>
+
                   <p className="mt-4 text-lg md:text-xl text-sage max-w-2xl text-pretty mx-auto lg:mx-0">
                     Play, create, and discover during school breaks, with friendly staff and a calm, safe routine.
                   </p>
@@ -52,7 +56,7 @@ export default function HolidayClubPage() {
                     </Link>
 
                     <Link
-                      href="/sessions-fees/holiday-club"
+                      href="/sessions-and-fees"
                       className="inline-flex items-center justify-center rounded-full bg-white/70 hover:bg-white text-dark-teal border border-sage/20 px-7 py-3 text-sm md:text-base font-semibold transition-colors"
                     >
                       View dates & fees
@@ -79,44 +83,54 @@ export default function HolidayClubPage() {
                   </div>
                 </div>
 
-                {/* Right - Cute collage */}
+                {/* Right - collage */}
                 <div className="relative">
                   <div className="absolute -top-6 -left-6 h-24 w-24 rounded-full bg-coral/20 blur-2xl" />
                   <div className="absolute -bottom-8 -right-8 h-28 w-28 rounded-full bg-teal/20 blur-2xl" />
 
                   <div className="grid grid-cols-2 gap-4">
+                    {/* ✅ Only ONE priority image (LCP helper) */}
                     <div className="relative overflow-hidden rounded-[22px] border border-white/70 bg-white/70 shadow-sm">
                       <div className="relative h-[210px] w-full">
                         <Image
                           src="/holiday-club-outdoor-play.jpg"
                           alt="Children enjoying outdoor play"
                           fill
-                          className="object-cover"
                           priority
+                          quality={72}
+                          sizes={heroHalfSizes}
+                          className="object-cover"
                         />
                       </div>
                     </div>
 
+                    {/* lazy */}
                     <div className="relative overflow-hidden rounded-[22px] border border-white/70 bg-white/70 shadow-sm">
                       <div className="relative h-[210px] w-full">
                         <Image
                           src="/holiday-club-crafts.jpg"
                           alt="Children doing crafts"
                           fill
+                          quality={72}
+                          sizes={heroHalfSizes}
                           className="object-cover"
                         />
                       </div>
                     </div>
 
+                    {/* large */}
                     <div className="relative overflow-hidden rounded-[22px] border border-white/70 bg-white/70 shadow-sm col-span-2">
                       <div className="relative h-[220px] md:h-[240px] w-full">
                         <Image
                           src="/holiday-club-group-fun.jpg"
                           alt="Holiday club group fun"
                           fill
+                          quality={72}
+                          sizes={fullSizes}
                           className="object-cover"
                         />
                       </div>
+
                       <div className="absolute bottom-4 left-4 right-4">
                         <div className="rounded-2xl bg-white/80 backdrop-blur-md border border-white/70 p-4">
                           <div className="flex items-start gap-3">
@@ -145,7 +159,7 @@ export default function HolidayClubPage() {
                 </div>
               </div>
 
-              {/* Quick gallery strip */}
+              {/* Quick gallery strip (kept lazy) */}
               <div className="mt-10 md:mt-12">
                 <div className="grid gap-4 md:grid-cols-3">
                   <div className="relative overflow-hidden rounded-[22px] border border-white/70 bg-white/70 shadow-sm">
@@ -154,34 +168,41 @@ export default function HolidayClubPage() {
                         src="/holiday-club-sensory-play.jpg"
                         alt="Sensory play activity"
                         fill
+                        quality={70}
+                        sizes={stripSizes}
                         className="object-cover"
                       />
                     </div>
                   </div>
+
                   <div className="relative overflow-hidden rounded-[22px] border border-white/70 bg-white/70 shadow-sm">
                     <div className="relative h-[180px] w-full">
                       <Image
                         src="/holiday-club-story-time.jpg"
                         alt="Story time"
                         fill
+                        quality={70}
+                        sizes={stripSizes}
                         className="object-cover"
                       />
                     </div>
                   </div>
+
                   <div className="relative overflow-hidden rounded-[22px] border border-white/70 bg-white/70 shadow-sm">
                     <div className="relative h-[180px] w-full">
                       <Image
                         src="/holiday-club-building-blocks.jpg"
                         alt="Building and construction play"
                         fill
+                        quality={70}
+                        sizes={stripSizes}
                         className="object-cover"
                       />
                     </div>
                   </div>
                 </div>
-
-
               </div>
+
             </div>
           </div>
         </section>
@@ -195,14 +216,10 @@ export default function HolidayClubPage() {
 
           <div className="container mx-auto px-4 relative">
             <div className="max-w-6xl mx-auto">
-              {/* Wrap HolidayClubSection in a “card” for a softer, cuter feel */}
               <div className="rounded-[26px] border border-white/70 bg-white/75 backdrop-blur-md shadow-[0_18px_60px_rgba(0,0,0,0.08)] p-5 md:p-8">
                 <HolidayClubSection />
               </div>
 
-              
-
-              {/* Extra cute footer strip */}
               <div className="mt-10">
                 <div className="rounded-[26px] border border-sage/15 bg-sage/10 p-6 md:p-8">
                   <div className="grid gap-6 md:grid-cols-3 items-start">
@@ -241,6 +258,7 @@ export default function HolidayClubPage() {
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
         </section>

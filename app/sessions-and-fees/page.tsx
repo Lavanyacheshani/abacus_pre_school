@@ -49,7 +49,7 @@ export default function SessionsAndFeesPage() {
                 </Link>
 
                 <Link
-                  href="/sessions-fees/admissions"
+                  href="/admissions"
                   className="inline-flex items-center justify-center rounded-full bg-white/70 hover:bg-white text-dark-teal border border-sage/20 px-7 py-3 text-sm md:text-base font-semibold transition-colors"
                 >
                   Admissions

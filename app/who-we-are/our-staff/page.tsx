@@ -18,52 +18,52 @@ const staff = [
     {
         name: "Tracey",
         role: "Deputy Manager, Paediatric First Aider, SENCO",
-        image: "/staff/tracey.jpg",
+        image: "/staff/2.avif",
         bio: "Tracey joined Abacus in February 2018 and became Deputy Manager in September 2018. She holds an OFSTED-recognised Level 3 early years qualification and has over 15 years’ experience working with children.",
     },
     {
         name: "Jessie",
         role: "Administrator",
-        image: "/staff/jessie.jpg",
+        image: "/staff/3.avif",
         bio: "Jessie joined Abacus in May 2024.",
     },
     {
         name: "Sumi",
         role: "Key Worker, Paediatric First Aider",
-        image: "/staff/sumi.jpg",
-        bio: "We welcomed Sumi into our team in February 2017. She has previously worked in a day nursery and has achieved a Level 3 in Childcare. Sumi is able to communicate in Nepalese and Hindi.",
+        image: "/staff/4.avif",
+        bio: "We welcomed Sumi into our team in February 2017. She has previously worked in a day nursery and has achieved a Level 3 in Childcare.",
         languages: ["Nepalese", "Hindi"],
     },
     {
         name: "Iresha",
         role: "Key Worker",
-        image: "/staff/iresha.jpg",
+        image: "/staff/5.avif",
         bio: "Iresha joined our team after completing her work placement with us in September 2021. She has completed her Level 3 in Childcare.",
     },
     {
         name: "Tuba",
         role: "Key Worker",
-        image: "/staff/tuba.jpg",
+        image: "/staff/6.avif",
         bio: "Tuba joined our team in September 2022 after completing her work placement with us. She has completed her Level 3 in Childcare.",
     },
     {
         name: "Caroline",
         role: "Key Worker, Paediatric First Aider",
-        image: "/staff/caroline.jpg",
+        image: "/staff/7.avif",
         bio: "Caroline is our most senior member of staff, having worked at Abacus for over 20 years. She holds a Level 3 in Childcare.",
     },
     {
         name: "Jayun",
         role: "Team Member",
-        image: "/staff/jayun.jpg",
-        bio: "Jayun joined Abacus in May 2024. In addition to English, Jayun also speaks Korean. She holds an MA in Korea and is currently working towards her Level 2 in Child Care.",
+        image: "/staff/8.avif",
+        bio: "Jayun joined Abacus in May 2024. In addition to English, Jayun also speaks Korean.",
         languages: ["Korean"],
     },
     {
         name: "Najoua",
         role: "Key Worker, Paediatric First Aider",
-        image: "/staff/najoua.jpg",
-        bio: "Najoua has been doing her placement with Abacus for some time and officially joined the team in September 2019. In addition to English, Najoua speaks Arabic and French.",
+        image: "/staff/9.avif",
+        bio: "Najoua officially joined the team in September 2019. In addition to English, Najoua speaks Arabic and French.",
         languages: ["Arabic", "French"],
     },
 ]
@@ -73,7 +73,7 @@ export default function OurStaffPage() {
         <div className="min-h-screen bg-cream">
             <Navigation />
 
-            {/* Hero (server-safe) */}
+            {/* HERO */}
             <section className="relative overflow-hidden">
                 <div className="absolute inset-0">
                     <div className="absolute -top-28 left-1/2 h-[360px] w-[860px] -translate-x-1/2 rounded-full bg-gradient-to-r from-teal/16 via-coral/10 to-sage/16 blur-3xl" />
@@ -102,7 +102,6 @@ export default function OurStaffPage() {
                 </div>
             </section>
 
-            {/* Staff grid (client component) */}
             <StaffGrid staff={staff} />
 
             <Footer />
