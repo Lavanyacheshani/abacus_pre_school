@@ -23,7 +23,7 @@ export function StaffGrid({ staff }: { staff: StaffMember[] }) {
 
     const easeOut: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
-    // IMPORTANT: hidden state must match SSR to avoid hydration warnings
+    // Hidden state must match SSR to avoid hydration issues
     const container: Variants = {
         hidden: { opacity: 1, y: 0 },
         show: {
@@ -40,7 +40,9 @@ export function StaffGrid({ staff }: { staff: StaffMember[] }) {
         show: {
             opacity: 1,
             y: 0,
-            transition: reduceMotion ? { duration: 0 } : { duration: 0.45, ease: easeOut },
+            transition: reduceMotion
+                ? { duration: 0 }
+                : { duration: 0.45, ease: easeOut },
         },
     }
 
@@ -48,6 +50,7 @@ export function StaffGrid({ staff }: { staff: StaffMember[] }) {
 
     return (
         <section className="relative py-14 md:py-20 bg-gradient-to-br from-cream via-cream-light to-sage/10 overflow-hidden">
+            {/* Decorative background */}
             <div className="absolute inset-0">
                 <div className="absolute top-14 left-[-120px] h-[320px] w-[320px] rounded-full bg-gradient-to-br from-teal/12 to-transparent blur-3xl" />
                 <div className="absolute bottom-14 right-[-140px] h-[360px] w-[360px] rounded-full bg-gradient-to-br from-coral/12 to-transparent blur-3xl" />
@@ -70,35 +73,37 @@ export function StaffGrid({ staff }: { staff: StaffMember[] }) {
                                 className="group"
                             >
                                 <div className="relative rounded-[22px]">
+                                    {/* Glow */}
                                     <div className="absolute -inset-[1px] rounded-[22px] bg-gradient-to-br from-teal/30 via-white/0 to-coral/30 blur-[14px] opacity-70 group-hover:opacity-90 transition-opacity" />
                                     <div className="absolute -inset-[1px] rounded-[22px] bg-gradient-to-br from-teal/35 via-sage/20 to-coral/35 opacity-35" />
 
                                     <div className="relative rounded-[22px] bg-white/85 backdrop-blur-md border border-white/70 shadow-[0_16px_50px_rgba(0,0,0,0.12)] overflow-hidden flex flex-col">
-                                        {/* IMAGE AREA (fixed 128x171, centered, no cropping) */}
-                                        <div className="px-5 pt-5">
-                                            <div className="relative mx-auto h-[171px] w-[128px] overflow-hidden rounded-xl bg-sage/10">
-                                                <Image
-                                                    src={m.image}
-                                                    alt={`${m.name} - ${m.role}`}
-                                                    fill
-                                                    className="object-contain"
-                                                    sizes="128px"
-                                                />
-                                            </div>
+                                        {/* FULL IMAGE */}
+                                        <div className="relative aspect-[4/3] w-full overflow-hidden bg-sage/10">
+                                            <Image
+                                                src={m.image}
+                                                alt={`${m.name} - ${m.role}`}
+                                                fill
+                                                className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
+                                                sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                                            />
 
-                                            {/* Name + Role (below image for better readability at small size) */}
-                                            <div className="mt-3 text-center">
-                                                <div className="text-sm font-semibold text-dark-teal leading-tight">
+                                            {/* Image gradient overlay */}
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+
+                                            {/* Name + Role */}
+                                            <div className="absolute bottom-0 left-0 right-0 p-5">
+                                                <div className="text-sm font-semibold text-white leading-tight">
                                                     {m.name}
                                                 </div>
-                                                <div className="mt-1 text-xs text-sage leading-snug">
+                                                <div className="mt-1 text-xs text-white/85 leading-snug">
                                                     {m.role}
                                                 </div>
                                             </div>
                                         </div>
 
                                         {/* CONTENT */}
-                                        <div className="p-5 pt-4 flex flex-col flex-1">
+                                        <div className="p-5 flex flex-col flex-1">
                                             <p className="text-sm text-sage leading-relaxed line-clamp-3">
                                                 {m.bio}
                                             </p>

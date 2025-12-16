@@ -11,7 +11,7 @@ const staff = [
     {
         name: "Elsie",
         role: "Manager, Paediatric First Aider, Safeguarding Officer/CPO",
-        image: "/staff/1.avif",
+        image: "/s1.png",
         bio: "Elsie started working at Abacus in 2007 as a Key Worker and took over the manager’s position in 2016. She has over 30 years’ teaching experience in the UK and Sri Lanka. She holds a Bachelor’s in Early Childhood Studies and is working towards a Master’s in Teaching and Learning. Elsie is also fluent in Tamil and Sinhala.",
         languages: ["Tamil", "Sinhala"],
     },
