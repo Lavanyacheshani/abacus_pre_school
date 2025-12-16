@@ -53,7 +53,7 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
-  /* Lock body scroll on mobile menu */
+  /* Lock body scroll on mobile */
   useEffect(() => {
     if (!mobileMenuOpen) return
     const original = document.body.style.overflow
@@ -100,14 +100,14 @@ export function Navigation() {
       className={[
         "sticky top-0 z-50 border-b",
         scrolled
-          ? "bg-cream/85 backdrop-blur-md border-teal/15 shadow-[0_10px_30px_rgba(0,0,0,0.06)]"
-          : "bg-cream/95 border-teal/10",
+          ? "bg-cream border-teal/15 shadow-[0_10px_30px_rgba(0,0,0,0.06)]"
+          : "bg-cream border-teal/10",
       ].join(" ")}
     >
       <div className="container mx-auto px-4 py-4">
         <nav className="flex items-center justify-between" aria-label="Primary">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href="/" className="flex items-center gap-3">
             <div className="relative w-10 h-10 rounded-full overflow-hidden shadow-[0_12px_28px_rgba(0,0,0,0.12)]">
               <Image
                 src="/4.jpg"
@@ -116,10 +116,9 @@ export function Navigation() {
                 height={40}
                 className="w-full h-full object-cover"
               />
-              <span className="pointer-events-none absolute -inset-3 rounded-full bg-gradient-to-br from-teal/25 to-coral/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
             <div className="leading-tight">
-              <h1 className="text-xl font-bold text-dark-teal tracking-tight">ABACUS</h1>
+              <h1 className="text-xl font-bold text-dark-teal">ABACUS</h1>
               <p className="text-xs text-sage">NEW MALDEN PRESCHOOL</p>
             </div>
           </Link>
@@ -128,7 +127,6 @@ export function Navigation() {
           <div className="hidden lg:flex items-center gap-7">
             <NavLink href="/">Home</NavLink>
 
-            {/* Who We Are */}
             <Dropdown
               group={groups[0]}
               open={openDesktop}
@@ -141,7 +139,6 @@ export function Navigation() {
             <NavLink href="/news">Blogs</NavLink>
             <NavLink href="/events">Events</NavLink>
 
-            {/* Sessions */}
             <Dropdown
               group={groups[1]}
               open={openDesktop}
@@ -154,7 +151,7 @@ export function Navigation() {
 
             <Button
               size="sm"
-              className="bg-coral hover:bg-coral-dark text-cream rounded-full px-5 shadow-[0_14px_30px_rgba(0,0,0,0.14)]"
+              className="bg-coral hover:bg-coral-dark text-cream rounded-full px-5"
               asChild
             >
               <Link href="/contact#book-visit" className="inline-flex items-center gap-2">
@@ -175,11 +172,11 @@ export function Navigation() {
         </nav>
       </div>
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer – FULLY OPAQUE */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.aside
-            className="fixed inset-y-0 right-0 z-50 w-[92%] max-w-md bg-white/95 backdrop-blur-md border-l border-sage/10 shadow-[0_20px_70px_rgba(0,0,0,0.18)]"
+            className="fixed inset-y-0 right-0 z-50 w-[92%] max-w-md bg-white border-l border-sage/10 shadow-[0_20px_70px_rgba(0,0,0,0.18)]"
             initial={{ x: "8%" }}
             animate={{ x: 0 }}
             exit={{ x: "8%" }}
@@ -233,7 +230,6 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
   )
 }
 
-/* Desktop dropdown */
 function Dropdown({
   group,
   open,
@@ -265,7 +261,7 @@ function Dropdown({
             {...motionProps}
             id={`${dropdownId}-${group.key}`}
             role="menu"
-            className="absolute top-full left-0 mt-3 w-[320px] rounded-2xl bg-white/90 backdrop-blur-md border border-sage/10 shadow-xl"
+            className="absolute top-full left-0 mt-3 w-[320px] rounded-2xl bg-white border border-sage/10 shadow-xl"
           >
             <div className="p-2">
               {group.items.map((item: NavItem) => (
@@ -293,7 +289,6 @@ function Dropdown({
   )
 }
 
-/* Mobile helpers */
 function MobileLink({ href, onClick, children }: any) {
   return (
     <Link
