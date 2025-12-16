@@ -350,11 +350,11 @@ export function EventsPageContent() {
                 </div>
 
                 <div className="container mx-auto px-4 relative">
+                    {/* FIX: use animate="show" instead of whileInView so content is visible on mobile/tablet */}
                     <motion.div
                         variants={container}
                         initial="hidden"
-                        whileInView="show"
-                        viewport={{ once: true, amount: 0.2 }}
+                        animate="show"
                         className="max-w-6xl mx-auto"
                     >
                         {/* CALENDAR TAB */}
@@ -540,8 +540,6 @@ export function EventsPageContent() {
                                             </div>
                                         </div>
                                     </div>
-
-
                                 </motion.div>
                             </div>
                         )}

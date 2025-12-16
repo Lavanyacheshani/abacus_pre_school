@@ -108,9 +108,7 @@ export function Footer() {
               <h3 className="font-semibold text-cream mb-3">Blogs &amp; Events</h3>
               <ul className="space-y-2 text-sm text-cream/80">
                 <li><FooterLink href="/news">Blogs</FooterLink></li>
-                <li><FooterLink href="/events/calendar">Event Calendar</FooterLink></li>
-                <li><FooterLink href="/events/upcoming">Upcoming Events</FooterLink></li>
-                <li><FooterLink href="/events/past">Past Events</FooterLink></li>
+                <li><FooterLink href="/events">Events</FooterLink></li>
               </ul>
             </motion.div>
 
